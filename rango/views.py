@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.core.urlresolvers import reverse
 from rango.models import Category,Page
 from rango.forms import CategoryForm
 from rango.forms import PageForm
@@ -77,8 +78,7 @@ def show_category(request,category_name_slug):
         context_dict['category'] = None
         context_dict['pages'] = None
         # Go render the response and return it to the client.
-    return render(request, 'rango/category.html', context_dict,
-                  '<a href="/rango/">Index</a>')
+    return render(request, 'rango/category.html', context_dict)
 
 
 def index(request):
