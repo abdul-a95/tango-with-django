@@ -248,9 +248,3 @@ def user_login(request):
 def restricted(request):
     return render(request, 'rango/restricted.html',{})
 
-@login_required
-def user_logout(request):
-    # since we know user is already logged in
-    logout(request)
-    # take user back to homepage
-    return HttpResponseRedirect(reverse('index'))
